@@ -22,8 +22,10 @@ public class GameActivity extends AppCompatActivity implements GestureDetector.O
     final int FLING_THRESHOLD = 500;
 
     //BOARD INFORMATION
-    final int SQUARE = 200;
-    final int OFFSET = 5;
+    //final int SQUARE = 200;
+    //final int OFFSET = 5;
+    final int SQUARE = 80;
+    final int OFFSET = 10;
     final int COLS = 8;
     final int ROWS = 8;
     final int gameBoard[][] = {
@@ -192,6 +194,7 @@ public class GameActivity extends AppCompatActivity implements GestureDetector.O
             else
                 direction = "DOWN";
         }
+
         if (!direction.equals("UNKNOWN"))
         {
             player.move(gameBoard, direction);
@@ -215,10 +218,18 @@ public class GameActivity extends AppCompatActivity implements GestureDetector.O
         // 2) OR if the Player and Zombie are touching (LOSE)
         else if (player.getCol() == zombie.getCol() && player.getRow() == zombie.getRow())
         {
+            int col = player.getCol();
+            int row = player.getRow();
             losses += 1;
-            startNewGame();
-        }
 
+            startNewGame();
+
+            ImageView bloodImageView = (ImageView) layoutInflater.inflate(R.layout.blood_layout, null);
+            bloodImageView.setX(col * SQUARE + OFFSET);
+            bloodImageView.setY(row * SQUARE + OFFSET);
+            activityGameRelativeLayout.addView(bloodImageView);
+            allGameObjects.add(bloodImageView);
+        }
     }
 
     @Override
@@ -257,3 +268,4 @@ public class GameActivity extends AppCompatActivity implements GestureDetector.O
         return true;
     }
 }
+

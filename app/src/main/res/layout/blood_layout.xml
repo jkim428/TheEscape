@@ -2,6 +2,6 @@
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
            android:layout_width="25dp"
            android:layout_height="25dp"
-           android:contentDescription="@string/enemy"
-           android:src="@drawable/zombie">
+           android:contentDescription="@string/blood"
+           android:src="@drawable/blood">
 </ImageView>
