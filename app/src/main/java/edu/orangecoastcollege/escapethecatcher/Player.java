@@ -9,8 +9,12 @@ public class Player {
         // TODO: Implement the logic for the move operation
         // TODO: If the gameBoard is obstacle free in the direction requested,
         // TODO: Move the player in the intended direction.  Otherwise, do nothing (player loses turn)
-        if
-            if (gameBoard[mRow][mCol] == 2)
+        switch direction:
+        {
+            case "LEFT":
+                if (gameBoard[mRow][mCol] == 2)
+
+        }
 
 
 
